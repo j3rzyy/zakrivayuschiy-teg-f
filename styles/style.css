@@ -13,4 +13,150 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-main), sans-serif;
+  font-variation-settings: "wght" var(--font-main-weight);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* шапка */
+
+.header {
+  padding: 98px 0;
+  font-family: var(--font-accent);
+}
+
+.header__wrapper {
+  margin: auto;
+  background-color: #fff;
+  border: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: var(--block-width);
+  padding: clamp(120px, 32%, 130px) 0;
+}
+
+.header__logo {
+  font-weight: 400;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-weight: 400;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+/* Основной контент */
+
+.content {
+}
+
+.card {
+  margin: auto;
+  margin-bottom: 50px;
+  max-width: var(--block-width);
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.card__title {
+  font-weight: var(--font-main-weight-header);
+  font-size: 18px;
+  padding: 4px 10px;
+}
+
+.card__image-wrapper {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  position: relative;
+}
+
+.card__logo {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  position: absolute;
+  color: #fff;
+}
+
+.card__image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card__content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card__like {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.like-icon {
+}
+
+.card__like-button {
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: 9px 17px;
+  width: 130px;
+  height: 38px;
+}
+
+.button__text {
+  font-family: var(--font-accent);
+}
+
+/* footer */
+
+.footer {
+  padding-bottom: 100px;
+}
+
+.footer__button {
+  margin: auto;
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: 15px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.footer__button .button__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+}
+
+.icon {
+  width: 28px;
+}
+
+@media (width >= 1440px) {
+  .footer__button {
+    flex-direction: initial;
+  }
+
+  .icon {
+    width: 21px;
+  }
 }

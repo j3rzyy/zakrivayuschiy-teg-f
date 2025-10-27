@@ -11,14 +11,13 @@
 */
 
 .page {
+  font-family: var(--font-main), sans-serif;
+  background-image: var(--bg-gradient);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-main), sans-serif;
   font-variation-settings: "wght" var(--font-main-weight);
-  background-image: var(--bg-gradient);
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 /* шапка */
@@ -29,19 +28,19 @@
 }
 
 .header__wrapper {
-  margin: auto;
-  background-color: #fff;
-  border: 2px solid #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
   max-width: var(--block-width);
+  margin: auto;
+  border: 2px solid #000;
   padding: clamp(120px, 32%, 130px) 0;
+  background-color: #fff;
 }
 
-.header__logo {
+.header__label {
   font-weight: 400;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   text-transform: uppercase;
@@ -59,69 +58,90 @@
 }
 
 .card {
+  max-width: var(--block-width);
   margin: auto;
   margin-bottom: 50px;
-  max-width: var(--block-width);
-  background-color: #fff;
   border: 2px solid #000;
+  background-color: #fff;
 }
 
 .card__title {
-  font-weight: var(--font-main-weight-header);
-  font-size: 18px;
   padding: 4px 10px;
+  font-size: 18px;
+  font-variation-settings: "wght" var(--font-main-weight-header);
 }
 
 .card__image-wrapper {
+  position: relative;
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
-  position: relative;
 }
 
-.card__logo {
+.card__label {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  opacity: 0.5;
   font-family: var(--font-accent);
-  font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
+  text-shadow: -1px -1px var(--text-stroke), 1px -1px var(--text-stroke),
+    -1px 1px var(--text-stroke), 1px 1px var(--text-stroke);
   mix-blend-mode: hard-light;
-  opacity: 0.5;
-  position: absolute;
-  color: #fff;
 }
 
 .card__image {
-  max-width: 100%;
-  height: auto;
   display: block;
+  max-width: 100%;
+  aspect-ratio: 1/1;
 }
 
 .card__content {
-  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  padding: 25px;
+  font-size: 18px;
 }
 
+/* Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки */
+
 .card__like {
-  align-self: flex-end;
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.like-icon {
+  align-self: flex-end;
+  font-size: 14px;
 }
 
 .card__like-button {
-  background-color: #fff;
-  border: 2px solid #000;
-  padding: 9px 17px;
   width: 130px;
   height: 38px;
+  border: 2px solid #000;
+  padding: 9px 17px;
+  background-color: transparent;
+}
+
+.card__icon-button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
 }
 
 .button__text {
+  display: inline-block;
   font-family: var(--font-accent);
+  font-size: 14px;
+}
+
+.button__text::first-letter {
+  text-transform: uppercase;
 }
 
 /* footer */
@@ -131,14 +151,14 @@
 }
 
 .footer__button {
-  margin: auto;
-  background-color: #fff;
-  border: 2px solid #000;
-  padding: 15px 18px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   align-items: center;
+  gap: 8px;
+  margin: auto;
+  border: 2px solid #000;
+  padding: 15px 18px;
+  background-color: #fff;
 }
 
 .footer__button .button__text {
@@ -147,16 +167,80 @@
   line-height: 90%;
 }
 
-.icon {
+.diskette-icon {
   width: 28px;
+  aspect-ratio: 1/1;
 }
 
-@media (width >= 1440px) {
+/* modal */
+
+.footer__modal {
+  display: none;
+}
+
+.footer__modal[open] {
+  max-width: 353px;
+  padding: 28px 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer__modal[open]::backdrop {
+  background: #000;
+  opacity: 0.75;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.footer__modal-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__modal-title-wrapper .diskette-icon {
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+}
+
+.footer__modal-title {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.footer__modal .footer__button {
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* keyframes */
+
+
+
+/* media */
+
+@media (width > 375px) {
   .footer__button {
     flex-direction: initial;
   }
 
-  .icon {
-    width: 21px;
+  .footer__modal .footer__button {
+    flex-direction: column;
+  }
+}
+
+/* supports */
+
+@supports (text-stroke: 4px #fff) {
+  .card__label {
+    text-shadow: none;
+    text-stroke: 1px var(--text-stroke);
   }
 }

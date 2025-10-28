@@ -23,4 +23,7 @@
 
   --block-width: clamp(375px, 100%, 700px);
   --text-stroke: #fff;
+  --text-main: #000;
+  --animation-fill-color: #ff0000;
+  --contour-color: #000;
 }

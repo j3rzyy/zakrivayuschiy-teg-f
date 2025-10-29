@@ -284,11 +284,6 @@ body:has(dialog[open]) {
 
 /* hover */
 
-.card__like-button {
-  position: relative;
-  overflow: hidden;
-}
-
 .footer__button:after,
 .card__like-button:after {
   content: "";
